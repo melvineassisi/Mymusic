@@ -1,0 +1,30 @@
+
+{% extends 'music/base.html' %}
+
+{% block title %}
+Songs
+{% endblock %}
+
+{% block body %}
+<h1>{{ album.artist }}</h1>
+<h3>{{ album.artist_title }}</h3>
+
+{%  if error_msg %}
+    <p><strong{{error_msg}}</strong></p>  
+{% endif %}
+
+
+
+    
+    {% for song in album.song_set.all %}
+       
+        <label for="song{{  forloop.counter }}">
+            {{song.song_title}}           
+        </label></br>
+    {% endfor %}
+    
+
+</form>
+
+
+{% endblock %}
